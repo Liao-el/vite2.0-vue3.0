@@ -1,2 +1,2 @@
-# vite2.0-vue3.0-ts
-vite2.0+vue3.0+ts的学习全过程
+# vite2.0-vue3.0
+vite2.0+vue3.0的学习全过程记录
