@@ -12,7 +12,7 @@ getParams()
 
 <template>
     <div>
-        <h1>router-1</h1>
+        <h1>router-1 =========== router:https://router.vuejs.org/</h1>
 
         <router-view></router-view>
         <!-- <router-view v-slot="{ Component, route }">
