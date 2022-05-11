@@ -1,9 +1,9 @@
 // import VueRouter from 'vue-router'
 import { createRouter, createWebHashHistory, RouteRecordRaw, useRouter } from 'vue-router'
-// const router = useRouter()
 import Home from '../views/home.vue'
+import routers from './modules/routers'
+import stores from './modules/stores'
 
-// const routes: any = [
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -19,39 +19,14 @@ const routes: Array<RouteRecordRaw> = [
         name: "home",
         component: Home,
     },
-    // component: {
-    //     default: () => import('../views/routerPages/first.vue'),
-    //     routerSecond:() => import('../views/routerPages/second.vue'),
-    //     routerThird:() => import('../views/routerPages/third.vue'),
-    // }
-    {
-        path: "/routerPage",
-        name: "routerPage",
-        component: () => import('../views/routerPages/first.vue'),
-        children: [
-            {
-                path: '', // 提供一个空的嵌套路径，会默认渲染
-                meta: { transition: 'slide-left' },
-                component: import('../views/routerPages/second.vue'),
-            },
-            {
-                path: 'routerThird',
-                // 路由元信息——eg：用户权限 
-                meta: { requiresAuth: true, transition: 'slide-right' },
-                component: import('../views/routerPages/third.vue'),
-            },
-            // 用户无权限则跳转
-            {
-                path: 'routerForth',
-                name: 'routerForth',
-                component: import('../views/routerPages/forth.vue'),
-            },
-        ],
-    },
+    ...routers,
+    ...stores,
 
     // 所有找不到的页面跳转404
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('../views/404.vue') },
 ]
+
+// Vue-router新版本中，需要使用createRouter来创建路由 使用工厂函数创建router
 const router=createRouter({
     // 指定路由的模式,此处使用的是hash模式 : 在内部传递的实际 URL 之前使用了一个哈希字符（#）
     history: createWebHashHistory(),// html5用：createWebHistory
@@ -100,7 +75,6 @@ router.beforeEach((to, from, next) => {
 // 路由独享的守卫: 直接在路由配置上定义 beforeEnter 守卫
 
 
-// Vue-router新版本中，需要使用createRouter来创建路由 使用工厂函数创建router
 export default router
 
 
