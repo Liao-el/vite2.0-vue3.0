@@ -38,13 +38,13 @@
 //   return baseUseStore(key)
 // }
 
-import { createStore } from "vuex";
-export type Store = {
-  count:number
-}
+// import { createStore } from "vuex";
+// export type Store = {
+//   count:number
+// }
 
-createStore({
-  state: {
-    count:1,
-  }
-})
+// createStore({
+//   state: {
+//     count:1,
+//   }
+// })
