@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw, useRouter } from 'v
 import Home from '../views/home.vue'
 import routers from './modules/routers'
 import stores from './modules/stores'
+import plugin from './modules/plugins'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -18,16 +19,23 @@ const routes: Array<RouteRecordRaw> = [
         path: "/home",
         name: "home",
         component: Home,
+        // children: [
+        //     {
+        //         path: '',
+        //         component: () => import('../views/compare2to3/js.vue')
+        //     }
+        // ]
     },
     ...routers,
     ...stores,
+    ...plugin,
 
     // 所有找不到的页面跳转404
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('../views/404.vue') },
 ]
 
 // Vue-router新版本中，需要使用createRouter来创建路由 使用工厂函数创建router
-const router=createRouter({
+const router = createRouter({
     // 指定路由的模式,此处使用的是hash模式 : 在内部传递的实际 URL 之前使用了一个哈希字符（#）
     history: createWebHashHistory(),// html5用：createWebHistory
     routes

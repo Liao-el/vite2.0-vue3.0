@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let jsObj = {
+            a: 1,
+            b: 2,
+            arr: ['a', 'b', 'c'],
+        };
+        let jsCopy = {};
+        // vue2.x要循环！！嵌套多层会影响性能！！
+        //Object.keys(jsObj).forEach(key => {
+        //  Object.defineProperty(jsCopy, key, {
+        //   get() {
+        //    return jsCopy[key];
+        // },
+        //  set() {},
+        //  });
+        //  });
+        //console.log('jsObj_copy:', jsCopy,jsObj);
+
+        let o = new Proxy(jsObj, {
+            // get(target,key){
+            //    return target[key]
+            // },
+            // set(){
+            //     console.log("修改了")
+            // }
+            
+            // es6新写法
+            get(target, key, receiver) {
+                return Reflect.get(target, key, receiver)
+            },
+            set(target, key, value, receiver) {
+                return Reflect.set(target, key, value, receiver)
+            }
+        })
+        o.arr[0] = 'oooo'
+        console.log(o)
+    </script>
+</body>
+
+</html>

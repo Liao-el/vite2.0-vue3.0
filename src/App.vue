@@ -39,6 +39,9 @@ watch(
       <li>
         <router-link to="/storePage">vuex配置</router-link>
       </li>
+      <li>
+        <router-link to="/pluginPage">pluginPage配置</router-link>
+      </li>
     </ul>
 
     <router-view></router-view>
