@@ -4,6 +4,7 @@ import Home from '../views/home.vue'
 import routers from './modules/routers'
 import stores from './modules/stores'
 import plugin from './modules/plugins'
+import compare from './modules/compares'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -29,6 +30,7 @@ const routes: Array<RouteRecordRaw> = [
     ...routers,
     ...stores,
     ...plugin,
+    ...compare,
 
     // 所有找不到的页面跳转404
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('../views/404.vue') },
