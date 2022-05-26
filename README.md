@@ -1,5 +1,7 @@
 # vue 的个人学习小笔记
+[个人公众号文章地址](https://mp.weixin.qq.com/s?__biz=Mzk0MjMwNDMyMg==&amp;mid=2247483674&amp;idx=1&amp;sn=87b001d2ee2660c66c49e4d6bc3d9901&amp;chksm=c2c47c37f5b3f521fa793acccf90c2a29d1b6d3b030ad3cbde0771ca8e54b93ddd79a27c3948&token=1482337969&lang=zh_CN#rd)
 
+[个人博客园文章地址](https://www.cnblogs.com/elevens/p/16313815.html)
 ### 一、vite2.0+vue3.0+ts 创建、配置
 
 #### 1、Vite 创建 vue3 项目：
